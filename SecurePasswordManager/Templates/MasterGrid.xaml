@@ -1,0 +1,42 @@
+﻿<UserControl
+    x:Class="SecurePasswordManager.Templates.MasterGrid"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SecurePasswordManager.Templates"
+    xmlns:localcore="using:SecurePasswordManager.Core"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:icore="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Name="userControl"
+>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="48"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Button Width="48" Height="48">
+            <SymbolIcon Symbol="List"></SymbolIcon>
+            <i:Interaction.Behaviors>
+                <icore:EventTriggerBehavior EventName="Click">
+                    <localcore:OpenMenuFlyoutAction />
+                </icore:EventTriggerBehavior>
+            </i:Interaction.Behaviors>
+            <FlyoutBase.AttachedFlyout>
+                <MenuFlyout>
+                    <MenuFlyoutItem Text="About" Click="MenuFlyoutAbout_Click"></MenuFlyoutItem>
+                </MenuFlyout>
+            </FlyoutBase.AttachedFlyout>
+        </Button>
+
+        <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="4 0 0 0" FontSize="24" Text="{Binding Title, ElementName=userControl}"></TextBlock>
+
+        <ContentPresenter Grid.Row="1" Grid.ColumnSpan="2" Content="{Binding MainContent, ElementName=userControl}"></ContentPresenter>
+    </Grid>
+</UserControl>

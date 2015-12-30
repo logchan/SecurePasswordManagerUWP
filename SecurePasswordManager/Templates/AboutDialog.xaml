@@ -1,0 +1,30 @@
+﻿<ContentDialog
+    x:Class="SecurePasswordManager.Templates.AboutDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SecurePasswordManager.Templates"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="ABOUT"
+    PrimaryButtonText="Close"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick" Loaded="ContentDialog_Loaded"
+    >
+
+    <Grid>
+        <StackPanel>
+            <TextBlock>Secure Password Manager UWP</TextBlock>
+            <TextBlock>By logchan</TextBlock>
+            <TextBlock>Open source under DBAD License</TextBlock>
+            <TextBlock Name="versionText"></TextBlock>
+            <TextBlock></TextBlock>
+            <TextBlock>For code visit</TextBlock>
+            <HyperlinkButton NavigateUri="https://github.com/logchan/">https://github.com/logchan/</HyperlinkButton>
+            <TextBlock></TextBlock>
+            <TextBlock>For help visit</TextBlock>
+            <HyperlinkButton NavigateUri="https://logu.co/myapps/">https://logu.co/myapps/</HyperlinkButton>
+            <TextBlock></TextBlock>
+            <TextBlock TextWrapping="Wrap">This tool is written for two purpose. One is to help the users use different strong passwords across different services. The other is for my practice of C# and UWP.</TextBlock>
+        </StackPanel>
+    </Grid>
+</ContentDialog>

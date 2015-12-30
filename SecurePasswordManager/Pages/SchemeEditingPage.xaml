@@ -1,0 +1,83 @@
+﻿<Page
+    x:Class="SecurePasswordManager.Pages.SchemeEditingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SecurePasswordManager.Pages"
+    xmlns:localtemp="using:SecurePasswordManager.Templates"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Name="sePage" Loaded="sePage_Loaded">
+
+    <Page.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="0 4 0 4"></Setter>
+        </Style>
+    </Page.Resources>
+
+    <localtemp:MasterGrid Title="Edit">
+        <localtemp:MasterGrid.MainContent>
+            <RelativePanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="16">
+                <StackPanel RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" Name="topPanel">
+                    <StackPanel.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Margin" Value="8 0 8 8"></Setter>
+                        </Style>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Margin" Value="8 0 8 8"></Setter>
+                            <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+                        </Style>
+                    </StackPanel.Resources>
+                    <TextBlock>Name:</TextBlock>
+                    <TextBox Name="nameBox"></TextBox>
+                    <TextBlock>Description:</TextBlock>
+                    <TextBox Name="descBox"></TextBox>
+                    <TextBlock>Tap to edit salt fields:</TextBlock>
+                </StackPanel>
+                <ListView
+                    RelativePanel.Below="topPanel"
+                    RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.Above="bottomPanel" Name="fieldsList" SelectionMode="None" IsItemClickEnabled="True" ItemClick="fieldsList_ItemClick">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock FontSize="20" Margin="0 0 0 4" Text="{Binding Name}" TextWrapping="Wrap"></TextBlock>
+                                <TextBlock FontSize="12" Margin="0 0 0 8" Text="{Binding Description}" TextWrapping="Wrap"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <StackPanel RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" HorizontalAlignment="Stretch" Margin="8 0 8 0" Name="bottomPanel">
+
+                    <TextBlock>Iterations:</TextBlock>
+
+                    <Grid Name="iterPanel" Margin="8 0 0 0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <RadioButton GroupName="iterGroup" Margin="0 0 12 8" Name="iterChoiceFixed" IsChecked="True">Fixed Iterations</RadioButton>
+                        <TextBox Text="1" Grid.Column="1" Margin="0 0 0 8" Name="numIterBox"></TextBox>
+                        <RadioButton GroupName="iterGroup" Grid.Row="1" Name="iterChoiceLength">Length of Field</RadioButton>
+                        <ComboBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" Name="iterFieldCombo"></ComboBox>
+                    </Grid>
+
+                    <Grid Margin="0 8 0 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Margin="0 4 8 4">Result Processor:</TextBlock>
+                        <ComboBox HorizontalAlignment="Stretch" Name="procCombo" Grid.Column="1"></ComboBox>
+                    </Grid>
+
+                    <Button Name="saveSchemeBtn" HorizontalAlignment="Stretch" Margin="0 8 0 8" Click="saveSchemeBtn_Click">Save Scheme</Button>
+                    <Button Name="cancelBtn" HorizontalAlignment="Stretch" Margin="0 0 0 8" Click="cancelBtn_Click">Cancel</Button>
+                </StackPanel>
+            </RelativePanel>
+        </localtemp:MasterGrid.MainContent>
+    </localtemp:MasterGrid>
+</Page>
