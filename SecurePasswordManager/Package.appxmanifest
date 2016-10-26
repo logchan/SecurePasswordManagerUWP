@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="1964a065-19c9-4eab-aa8d-fc717de05d85" Publisher="CN=Geng" Version="1.0.0.0" />
+  <Identity Name="logchan.SecurePasswordManager" Publisher="E=logchan@logu.co, CN=logchan Code Sign, O=loguco, C=HK" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="1964a065-19c9-4eab-aa8d-fc717de05d85" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>SecurePasswordManager</DisplayName>
-    <PublisherDisplayName>Geng</PublisherDisplayName>
+    <PublisherDisplayName>logchan</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
